@@ -77,3 +77,15 @@
 
 //???
 // /- створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список
+
+
+function f8 (){
+    let main=[7,8,true, false, 'Lorem ipsum dolor sit amet','Hello','consectetur adipisicing elit.'];
+    document.write("<ul>");
+    for (let i = 0; i < main.length; i++) {
+        document.write(`<li>${main}</li>`);
+    }
+    document.write("</ul>");
+    }
+f8();
+
