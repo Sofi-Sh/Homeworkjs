@@ -78,14 +78,13 @@
 //???
 // /- створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список
 
-
-function f8 (){
-    let main=[7,8,true, false, 'Lorem ipsum dolor sit amet','Hello','consectetur adipisicing elit.'];
+const main=[7,8,true, false, 'Lorem ipsum dolor sit amet','Hello','consectetur adipisicing elit.'];
+function f8 (arr){
     document.write("<ul>");
-    for (let i = 0; i < main.length; i++) {
-        document.write(`<li>${main}</li>`);
+    for (let item of arr) {
+        document.write(`<li>${item}</li>`);
     }
     document.write("</ul>");
     }
-f8();
+f8(main);
 
