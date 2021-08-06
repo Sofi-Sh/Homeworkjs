@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User-details</title>
+    <link rel="stylesheet" href="details.css">
+</head>
+<body>
+
+
+
+<script>
+
+    const JSONUser = new URL(location).searchParams.get('user');
+    const user = JSON.parse(JSONUser);
+    document.body.innerHTML = JSON.stringify(user, null, 2);
+
+
+
+</script>
+<div class='postsBox'>
+    <div>
+        <button class="btn_posts">
+            <p>post of current user</p>
+        </button>
+    </div>
+
+</div>
+<script>
+const btn= document.querySelector('button')
+btn.onclick=function () {
+    fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`)
+        .then(response => response.json())
+        .then(posts => {
+            let postsB = document.getElementsByClassName('postsBox')[0];
+            postsB.innerText='';
+            for (const post of posts) {
+                let pBox = document.createElement('p');
+                pBox.innerText = `${post.id}-${post.title}`;
+                let postdetBtn = document.createElement('button');
+                postdetBtn.innerText = 'post-details';
+                postdetBtn.onclick = function () {
+                    location.href=`post-details.html?post=${JSON.stringify(post) }`
+                }
+                postsB.append(pBox);
+                postsB.append(postdetBtn);
+            }
+
+        });
+}
+</script>
+<!--    <script>-->
+
+<!--        fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`)-->
+<!--            .then(response => response.json())-->
+<!--            .then(posts => {-->
+<!--                let postsB = document.getElementsByClassName('postsBox')[0];-->
+<!--                for (const post of posts) {-->
+<!--                    let btnc = document.createElement('btn_posts');-->
+<!--    -->
+<!--                    btnc.onclick = function () {-->
+<!--    -->
+<!--                    }-->
+<!--    -->
+<!--                    let pBox = document.createElement('p');-->
+<!--                    pBox.innerText = `${post.id}-${post.title}`;-->
+<!--                    postsB.append(btnc);-->
+<!--                    btnc.append(pBox);-->
+<!--    -->
+<!--    -->
+<!--                }-->
+<!--            });-->
+<!--    </script>-->
+
+</body>
+
+</html>

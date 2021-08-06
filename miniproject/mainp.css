@@ -1,0 +1,27 @@
+*{
+    margin: 10px;
+    padding: 10px;
+}
+h2{
+    display: flex;
+    justify-content: center;
+}
+
+
+.users-box{
+    max-width: 800px;display: flex;
+    flex-wrap: wrap;
+    background-color: beige;
+
+
+}
+
+p, button {
+    width: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 100px;
+
+
+
+}
